@@ -1,0 +1,13 @@
+.option-container{
+    border-bottom: 0.1px solid var(--gray);
+    font-size: 24px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.option-container:hover{
+    background-color: var(--light-yellow);
+}

@@ -1,9 +1,7 @@
+import CustomSelectComponent from "./components/CustomSelectComponent";
+
 function App() {
-  return (
-    <>
-      App.jsx
-    </>
-  )
+  return <CustomSelectComponent />;
 }
 
-export default App
+export default App;
