@@ -1,17 +1,13 @@
 import "../css/option.css";
 
-function Option({ option, selectOptionFunc }) {
-  const { id, label } = option;
+function Option({ optionData, onSelect }) {
+  const { id, label } = optionData;
 
   return (
-    <div
-      key={id}
-      onClick={() => selectOptionFunc(label)}
-      className="option-container"
-    >
+    <div key={id} onClick={() => onSelect(label)} className="option-container">
       {label}
     </div>
   );
 }
 
-export default Option
+export default Option;

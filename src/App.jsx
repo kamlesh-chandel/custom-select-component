@@ -1,7 +1,7 @@
-import CustomSelectComponent from "./components/CustomSelectComponent";
+import CustomSelect from "./components/CustomSelect";
 
 function App() {
-  return <CustomSelectComponent />;
+  return <CustomSelect />;
 }
 
 export default App;
