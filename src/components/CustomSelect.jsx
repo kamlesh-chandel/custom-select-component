@@ -1,29 +1,32 @@
 import { useState } from "react";
 import "../css/constant.css";
 import "../css/customSelectComponent.css";
-import { languageOptions } from "../data/selectOptions.js";
+import { selectOptions} from "../data/selectOptions.js";
 import Option from "./Option.jsx";
 import SelectOptionSwitcher from "./SelectOptionSwitcher.jsx";
 import Select from "./Select.jsx";
 
-function CustomSelectComponent() {
-  const [selectedList, setSelectedList] = useState(languageOptions);
+function CustomSelect() {
+  const [selectedOptionList, setSelectedOptionList] =
+    useState(Object.values(selectOptions)[0][0]);
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(languageOptions[0].label);
+  const [selectedOption, setSelectedOption] = useState(
+    Object.values(selectOptions)[0][0].label
+  );
 
-  const selectOptionFunc = (value) => {
+  const onSelect = (value) => {
     setSelectedOption(value);
     setIsOptionsVisible(false);
   };
 
-  const changeOptionsListFunc = (arr, value) => {
-    setSelectedList(arr);
-    setSelectedOption(value);
+  const changeOptions = (options) => {
+      setSelectedOptionList(options);
+      setSelectedOption(options[0].label);
   };
 
   return (
     <div className="container">
-      <SelectOptionSwitcher changeOptionsListFunc={changeOptionsListFunc} />
+      <SelectOptionSwitcher changeOptions={changeOptions} />
       <Select
         setIsOptionsVisible={setIsOptionsVisible}
         isOptionsVisible={isOptionsVisible}
@@ -31,13 +34,16 @@ function CustomSelectComponent() {
       />
       {isOptionsVisible && (
         <div className="select-container">
-          {selectedList.map((option) => (
-            <Option option={option} selectOptionFunc={selectOptionFunc} />
-          ))}
+          {
+
+            selectedOptionList.map((item) => (
+              <Option optionData={item} onSelect={onSelect} />
+            ))
+          }
         </div>
       )}
     </div>
   );
 }
 
-export default CustomSelectComponent;
+export default CustomSelect;
