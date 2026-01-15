@@ -8,7 +8,7 @@ import Select from "./Select.jsx";
 
 function CustomSelect() {
   const [selectedOptionList, setSelectedOptionList] =
-    useState(Object.values(selectOptions)[0][0]);
+    useState(Object.values(selectOptions)[0]);
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
   const [selectedOption, setSelectedOption] = useState(
     Object.values(selectOptions)[0][0].label
